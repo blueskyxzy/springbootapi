@@ -1,7 +1,10 @@
-package xzy.admin.controller;
+package com.xzy.springbootapi.admin.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.xzy.springbootapi.utils.HttpRestUtils;
+import com.xzy.springbootapi.utils.ResultMessageBuilder;
+import com.xzy.springbootapi.utils.StructUtils;
 import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -73,7 +76,7 @@ public abstract class BaseRestCtrl {
         //过滤数字
         String[] pathArray = path.split("/");
         for (String p : pathArray) {
-            if (!org.apache.commons.lang.StringUtils.isBlank(p)) {
+            if (!StringUtils.isBlank(p)) {
                 sb.append("/");
                 Pattern pattern = Pattern.compile("[0-9]*");
                 if (pattern.matcher(p).matches()) {
@@ -86,7 +89,7 @@ public abstract class BaseRestCtrl {
         String method = request.getMethod();
         String _method = request.getParameter("_method");
         sb.append(":");
-        if (!org.apache.commons.lang.StringUtils.isBlank(_method)) {
+        if (!StringUtils.isBlank(_method)) {
             sb.append(_method.toLowerCase());
         } else {
             sb.append(method.toLowerCase());

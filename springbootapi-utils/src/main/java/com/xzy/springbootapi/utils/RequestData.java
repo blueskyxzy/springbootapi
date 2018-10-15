@@ -1,4 +1,4 @@
-package com.xzy.utils;
+package com.xzy.springbootapi.utils;
 
 /**
  * Created by laborc on 2018/6/23.

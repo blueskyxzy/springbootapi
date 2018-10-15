@@ -1,4 +1,4 @@
-package xzy.admin;
+package com.xzy.springbootapi.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

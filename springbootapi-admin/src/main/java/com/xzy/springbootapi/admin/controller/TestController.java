@@ -1,4 +1,4 @@
-package xzy.admin.controller;
+package com.xzy.springbootapi.admin.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class TestController extends BaseRestCtrl{
+public class TestController extends BaseRestCtrl {
 
     @RequestMapping("/")
     public String home(){

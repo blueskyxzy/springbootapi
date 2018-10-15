@@ -1,4 +1,4 @@
-package com.xzy.utils;
+package com.xzy.springbootapi.utils;
 
 import java.util.Random;
 

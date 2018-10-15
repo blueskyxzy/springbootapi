@@ -1,4 +1,4 @@
-package com.xzy.utils;
+package com.xzy.springbootapi.utils;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
