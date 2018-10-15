@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springbootapi</artifactId>
+        <groupId>com.xzy</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springbootapi-admin-aggregate</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>../springbootapi-oss</module>
+        <module>../springbootapi-mybatis</module>
+        <module>../springbootapi-service</module>
+        <module>../springbootapi-admin</module>
+        <module>../springbootapi-utils</module>
+    </modules>
+</project>

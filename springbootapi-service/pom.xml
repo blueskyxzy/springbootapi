@@ -3,13 +3,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>springbootapi-parent</artifactId>
+        <artifactId>springbootapi-admin</artifactId>
         <groupId>com.xzy</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../springbootapi-admin/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springbootapi-utils</artifactId>
+    <artifactId>springbootapi-service</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -24,11 +25,6 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.10</version>
         </dependency>
     </dependencies>
 

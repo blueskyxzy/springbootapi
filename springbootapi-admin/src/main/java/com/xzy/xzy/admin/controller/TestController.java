@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class TestController {
+public class TestController extends BaseRestCtrl{
 
     @RequestMapping("/")
     public String home(){
