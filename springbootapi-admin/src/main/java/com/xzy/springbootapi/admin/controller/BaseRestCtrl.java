@@ -38,7 +38,7 @@ public abstract class BaseRestCtrl {
     protected String getJsonPath() {
         String name = this.getClass().getSimpleName();
         name = name.replace(".", "/");
-        return "/com/nmw/ourtoken/json/" + name + ".json";
+        return "/com/xzy/springbootapi/json/" + name + ".json";
     }
 
     protected String buildUrl(HttpServletRequest request) {
