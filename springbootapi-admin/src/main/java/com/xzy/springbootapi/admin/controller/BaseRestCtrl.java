@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.xzy.springbootapi.utils.HttpRestUtils;
 import com.xzy.springbootapi.utils.ResultMessageBuilder;
-import com.xzy.springbootapi.utils.StructUtils;
 import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -40,27 +39,6 @@ public abstract class BaseRestCtrl {
         String name = this.getClass().getSimpleName();
         name = name.replace(".", "/");
         return "/com/nmw/ourtoken/json/" + name + ".json";
-    }
-
-    protected Object filterModel(HttpServletRequest request, Object data) {
-        String url = buildUrl(request);
-        try {
-            JSONObject modelStruct = structCache.get(url);
-            if (modelStruct == null) {
-                InputStreamReader inputStreamReader = new InputStreamReader(this.getClass().getResourceAsStream(this.getJsonPath()), "UTF-8");
-                String jsonTxt = IOUtils.toString(inputStreamReader);
-                JSONObject obj = JSONObject.fromObject(jsonTxt);
-                modelStruct = (JSONObject) obj.get(url);
-                if (modelStruct != null) {
-                    structCache.put(url, modelStruct);
-                }
-                return StructUtils.filterModel(data, modelStruct);
-            } else {
-                return StructUtils.filterModel(data, modelStruct);
-            }
-        } catch (Exception e) {
-        }
-        return data;
     }
 
     protected String buildUrl(HttpServletRequest request) {
@@ -150,17 +128,6 @@ public abstract class BaseRestCtrl {
      */
     public static <T> void writeSuccess(HttpServletResponse response, T data) {
         HttpRestUtils.writeJsonObject(response, ResultMessageBuilder.success(data));
-    }
-
-    /**
-     * write success message to response
-     *
-     * @param response http response
-     * @param data     data
-     * @param <T>      data type
-     */
-    public <T> void writeSuccess(HttpServletRequest request, HttpServletResponse response, T data) {
-        HttpRestUtils.writeJsonObject(response, ResultMessageBuilder.success(filterModel(request, data)));
     }
 
     /**
