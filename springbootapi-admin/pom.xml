@@ -7,9 +7,8 @@
 		<artifactId>springbootapi-parent</artifactId>
 		<groupId>com.xzy</groupId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../springbootapi-parent</relativePath>
+		<relativePath>../springbootapi-parent/pom.xml</relativePath>
 	</parent>
-	<packaging>war</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,24 +16,10 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
+	<packaging>war</packaging>
 	<artifactId>springbootapi-admin</artifactId>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.xzy</groupId>
-			<artifactId>springbootapi-utils</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xzy</groupId>
-			<artifactId>springbootapi-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.3.2</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot</artifactId>
@@ -45,7 +30,54 @@
 			<artifactId>spring-boot-autoconfigure</artifactId>
 			<version>1.5.1.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<exclusions><!-- 去掉默认配置 -->
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency> <!-- 引入log4j2依赖 -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.xzy</groupId>
+			<artifactId>springbootapi-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xzy</groupId>
+			<artifactId>springbootapi-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.39</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
 		<dependency>
 			<groupId>net.coobird</groupId>
 			<artifactId>thumbnailator</artifactId>
@@ -101,7 +133,6 @@
 			<artifactId>quartz-jobs</artifactId>
 		</dependency>
 	</dependencies>
-
 	<profiles>
 		<profile>
 			<id>prod</id>
@@ -165,5 +196,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

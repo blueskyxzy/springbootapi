@@ -1,0 +1,202 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+ body {
+    overflow-x: hidden;
+ }
+
+/* Toggle Styles */
+
+#wrapper {
+    position: relative;
+    /*top: 72px;*/
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 300px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: absolute;
+    left: 300px;
+    /*top: 0px;*/
+    width: 0;
+    height: 100%;
+    min-height: 1000px;
+    margin-left: -300px;
+    overflow-y: auto;
+    background: #002140;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.50);
+
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 300px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -300px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    margin: 0;
+    /* 112px = 40px + 72px, 72px is header height */
+    padding: 62px 0 0 0;
+    list-style: none;
+}
+
+.sidebar-nav .sidebar-menu1 {
+    /* text-indent: 60px; */
+    letter-spacing: 0;
+    line-height: 60px;
+    font-weight: bold;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.sidebar-nav .sidebar-menu1>a {
+    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
+    letter-spacing: 1.11px;
+}
+
+.sidebar-nav .sidebar-menu1>a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+    /*background-color: #FFF;*/
+    /*box-shadow: 0 -1px 1px 0 rgba(226,226,226,0.50), 0 1px 1px 0 rgba(208,208,208,0.50);*/
+}
+
+.sidebar-nav .sidebar-menu1>a:active,
+.sidebar-nav .sidebar-menu1>a:focus {
+    text-decoration: none;
+    /*background-color: #FFF;*/
+    /*box-shadow: 0 -1px 1px 0 rgba(226,226,226,0.50), 0 1px 1px 0 rgba(208,208,208,0.50);*/
+}
+
+.sidebar-nav .sidebar-menu1 .panel-body {
+    padding: 0;
+}
+
+.sidebar-nav .sidebar-menu2 {
+    /* text-indent: 80px; */
+    line-height: 40px;
+    font-size: 14px;
+    font-family: "Microsoft YaHei", "helvetica neue", SimSun, Tahoma, Arial, sans-serif, iconfont;
+    letter-spacing: 0.77px;
+}
+
+.sidebar-nav a.sidebar-menu2 {
+    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.sidebar-nav a.sidebar-menu2:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+    /*background-color: #FFF;*/
+    /*box-shadow: 0 -1px 1px 0 rgba(226,226,226,0.50), 0 1px 1px 0 rgba(208,208,208,0.50);*/
+}
+
+.sidebar-nav a.sidebar-menu2:active,
+.sidebar-nav a.sidebar-menu2:focus {
+    text-decoration: none;
+    /*background-color: #FFF;*/
+    /*box-shadow: 0 -1px 1px 0 rgba(226,226,226,0.50), 0 1px 1px 0 rgba(208,208,208,0.50);*/
+}
+
+.menu-text-row {
+    padding-left: 20px;
+}
+
+.triangle-active {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 16px solid red;
+    border-bottom: 8px solid transparent;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 16px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+.menu2-text {
+    text-indent: 15px;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 200px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 200px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

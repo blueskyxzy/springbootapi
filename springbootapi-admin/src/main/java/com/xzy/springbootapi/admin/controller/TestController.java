@@ -16,6 +16,7 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/test")
 public class TestController extends BaseRestCtrl {
 
     @Autowired
