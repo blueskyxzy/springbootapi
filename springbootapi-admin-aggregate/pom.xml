@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>../springbootapi-oss</module>
         <module>../springbootapi-mybatis</module>
         <module>../springbootapi-service</module>
         <module>../springbootapi-admin</module>
