@@ -10,16 +10,20 @@
 		<relativePath>../springbootapi-parent/pom.xml</relativePath>
 	</parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
-
 	<packaging>war</packaging>
 	<artifactId>springbootapi-admin</artifactId>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.xzy</groupId>
+			<artifactId>springbootapi-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.xzy</groupId>
+			<artifactId>springbootapi-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot</artifactId>
@@ -52,32 +56,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.xzy</groupId>
-			<artifactId>springbootapi-utils</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.xzy</groupId>
-			<artifactId>springbootapi-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.39</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-		</dependency>
-        <dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.3.2</version>
-		</dependency>
+
 		<dependency>
 			<groupId>net.coobird</groupId>
 			<artifactId>thumbnailator</artifactId>
@@ -106,6 +85,13 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.2.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<!-- In Eclipse, saving a modified file will cause the classpath to be updated and trigger a restart. -->
+			<!-- In IntelliJ IDEA, building the project (Build → Make Project) will have the same effect. -->
+			<optional>true</optional>
+		</dependency>
 
 		<dependency>
 			<groupId>net.sourceforge.nekohtml</groupId>
@@ -133,6 +119,7 @@
 			<artifactId>quartz-jobs</artifactId>
 		</dependency>
 	</dependencies>
+
 	<profiles>
 		<profile>
 			<id>prod</id>

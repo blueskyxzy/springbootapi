@@ -6,7 +6,7 @@
     <parent>
         <artifactId>springbootapi-parent</artifactId>
         <groupId>com.changru</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath>../springbootapi-parent/pom.xml</relativePath>
     </parent>
     <artifactId>springbootapi-oss</artifactId>
