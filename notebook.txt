@@ -14,6 +14,7 @@ If you want an embedded database please put a supported one on the classpath. If
 加入@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)，是为了排除自动注入。mapper仍然不能注入，报错Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required
 
 @EnableTransactionManagement // 如果mybatis中service实现类中加入事务注解，需要此处添加该注解
-@MapperScan(basePackages = "com.xzy.springbootapi.domain.mapper") // 扫描的是mapper.xml中namespace指向值的包位置
+
+结果发现mapper的namespace的写错了.不同环境配置文件没有用，只能在application.properties标注。
 
 3.
