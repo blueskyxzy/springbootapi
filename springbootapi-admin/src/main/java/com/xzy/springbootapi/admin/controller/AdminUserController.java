@@ -6,26 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
- * Created by xzy on 18/10/12  .
+ * Created by xzy on 18/10/24  .
  */
 
-@RestController
-@RequestMapping("/test")
-public class TestController extends BaseRestCtrl {
+@Controller
+@RequestMapping("/user")
+public class AdminUserController extends BaseRestCtrl{
 
     @Autowired
     private AdminUserService adminUserService;
 
-    // 返回字符串
+    // 返回页面
     @RequestMapping("/home")
-    public String home(){
-        return "hello world";
+    public ModelAndView home(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("login");
+        return mv;
     }
 
     @GetMapping("/allAdminUsers")
