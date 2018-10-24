@@ -22,14 +22,6 @@ public class AdminUserController extends BaseRestCtrl{
     @Autowired
     private AdminUserService adminUserService;
 
-    // 返回页面
-    @RequestMapping("/home")
-    public ModelAndView home(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("login");
-        return mv;
-    }
-
     @GetMapping("/allAdminUsers")
     public void testApi(HttpServletResponse response){
         List<AdminUser> adminUsers = adminUserService.loadAll();
