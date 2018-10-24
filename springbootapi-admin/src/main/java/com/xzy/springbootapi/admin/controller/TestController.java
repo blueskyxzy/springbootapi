@@ -3,6 +3,7 @@ package com.xzy.springbootapi.admin.controller;
 import com.xzy.springbootapi.domain.AdminUser;
 import com.xzy.springbootapi.service.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,12 +16,13 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/test")
 public class TestController extends BaseRestCtrl {
 
     @Autowired
     private AdminUserService adminUserService;
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home(){
         return "hello world";
     }
