@@ -16,3 +16,19 @@ If you want an embedded database please put a supported one on the classpath. If
 @EnableTransactionManagement // 如果mybatis中service实现类中加入事务注解，需要此处添加该注解
 
 结果发现mapper的namespace的写错了.不同环境配置文件没有用，只能在application.properties标注。
+
+3.报错javax.servlet.ServletException: Circular view path [login]: would dispatch back to the current handler URL [/p/login] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)
+当没有声明ViewResolver时，spring会注册一个默认的ViewResolver，就是JstlView的实例， 该对象继承自InternalResoureView。
+JstlView用来封装JSP或者同一Web应用中的其他资源，它将model对象作为request请求的属性值暴露出来, 并将该请求通过javax.servlet.RequestDispatcher转发到指定的URL.
+Spring认为， 这个view的URL是可以用来指定同一web应用中特定资源的，是可以被RequestDispatcher转发的。
+也就是说，在页面渲染(render)之前，Spring会试图使用RequestDispatcher来继续转发该请求
+代码：
+if (path.startsWith("/") ? uri.equals(path) : uri.equals(StringUtils.applyRelativePath(uri, path))) {
+    throw new ServletException("Circular view path [" + path + "]: would dispatch back " +
+                        "to the current handler URL [" + uri + "] again. Check your ViewResolver setup! " +
+                        "(Hint: This may be the result of an unspecified view, due to default view name generation.)");
+}
+
+从这段代码可以看出，如果你的view name和你的path是相同的字符串，根据Spring的转发规则，就等于让自己转发给自己，会陷入死循环。所以Spring会检查到这种情况，于是抛出Circular view path异常。
+
+还有一种情况是，日志虽然报了这段，但是原因其实是viewResolver配置错误。
