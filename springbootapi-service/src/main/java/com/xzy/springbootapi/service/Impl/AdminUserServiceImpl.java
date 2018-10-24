@@ -5,7 +5,9 @@ import com.xzy.springbootapi.domain.mapper.AdminUserMapper;
 import com.xzy.springbootapi.service.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -13,9 +15,12 @@ import java.util.List;
  */
 
 @Service
+@Transactional
 public class AdminUserServiceImpl implements AdminUserService{
-    @Autowired
+
+    @Resource
     private AdminUserMapper adminUserMapper;
+
     @Override
     public List<AdminUser> loadAll() {
         return adminUserMapper.loadAll();

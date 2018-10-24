@@ -1,0 +1,19 @@
+1.运行主程序报错：
+java.lang.ClassCastException: ConditionalOnJava$JavaVersion cant be cast to org.springframework.boot.system.JavaVersion
+
+多次排查后发现是本地仓库中有spring-boot和spring-boot-autoconfigure的2.0.5的版本，而程序用的是1.5.1版本。
+将本地spring-boot和spring-boot-autoconfigure的2.0.5版本删除即可
+
+
+2.主程序运行继续报错：
+Description:
+Cannot determine embedded database driver class for database type NONE
+Action:
+If you want an embedded database please put a supported one on the classpath. If you have database settings to be loaded from a particular profile you may need to active it (no profiles are currently active).
+
+加入@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)，是为了排除自动注入。mapper仍然不能注入，报错Property 'sqlSessionFactory' or 'sqlSessionTemplate' are required
+
+@EnableTransactionManagement // 如果mybatis中service实现类中加入事务注解，需要此处添加该注解
+@MapperScan(basePackages = "com.xzy.springbootapi.domain.mapper") // 扫描的是mapper.xml中namespace指向值的包位置
+
+3.
