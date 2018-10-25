@@ -21,6 +21,11 @@ public class PageController{
         return mv;
     }
 
+    @RequestMapping(value = "/demo3", method = RequestMethod.GET)
+    public String demo3() {
+        return "demo3";
+    }
+
     // 登录页
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
