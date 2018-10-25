@@ -14,6 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class PageController{
 
     // 返回页面
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public ModelAndView test() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("test");
+        return mv;
+    }
+
+    // 登录页
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
         ModelAndView mv = new ModelAndView();
