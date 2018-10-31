@@ -4,7 +4,7 @@
     如果需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解
 
 2.访问页面
-http://localhost:8080/demo2.html
-http://localhost:8080/views/demo1.html
-http://localhost:8080/p/demo3
+http://localhost:8091/demo2.html
+http://localhost:8091/views/demo1.html
+http://localhost:8091/p/demo3
 

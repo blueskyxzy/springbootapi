@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>springbootapi-parent</artifactId>
 		<groupId>com.xzy</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0-SNAPSHOT</version>
 		<relativePath>../springbootapi-parent/pom.xml</relativePath>
 	</parent>
 
@@ -16,176 +16,33 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.xzy</groupId>
-			<artifactId>springbootapi-utils</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>springbootapi-service</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.xzy</groupId>
-			<artifactId>springbootapi-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot</artifactId>
-			<version>1.5.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-autoconfigure</artifactId>
-			<version>1.5.1.RELEASE</version>
+			<artifactId>springbootapi-utils</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-			<exclusions><!-- 去掉默认配置 -->
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency> <!-- 引入log4j2依赖 -->
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>net.coobird</groupId>
-			<artifactId>thumbnailator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-		</dependency>
-
-		<!-- swagger2 to generate java doc -->
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<!-- In Eclipse, saving a modified file will cause the classpath to be updated and trigger a restart. -->
-			<!-- In IntelliJ IDEA, building the project (Build → Make Project) will have the same effect. -->
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>net.sourceforge.nekohtml</groupId>
-			<artifactId>nekohtml</artifactId>
-			<version>1.9.22</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>3.15</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>3.15</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.quartz-scheduler</groupId>
-			<artifactId>quartz-jobs</artifactId>
-		</dependency>
-		<!-- java.lang.ClassNotFoundException: javax.servlet.jsp.jstl.core.Config -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>prod</id>
-			<properties>
-				<profileActive>prod</profileActive>
-			</properties>
-		</profile>
-		<profile>
-			<id>qa</id>
-			<properties>
-				<profileActive>qa</profileActive>
-			</properties>
-		</profile>
-		<profile>
-			<id>dev</id>
-			<properties>
-				<profileActive>dev</profileActive>
-			</properties>
-		</profile>
-		<profile>
-			<id>local</id>
-			<properties>
-				<profileActive>local</profileActive>
-			</properties>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-		</profile>
-	</profiles>
-
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<excludes>
-					<exclude>application-*.properties</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>application-${profileActive}.properties</include>
-				</includes>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<fork>true</fork>
-					<executable>true</executable>
-				</configuration>
-				<!--
-                <configuration>
-                    <executable>true</executable>
-                </configuration>
-                -->
 			</plugin>
 		</plugins>
 	</build>

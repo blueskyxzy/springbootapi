@@ -8,11 +8,12 @@
 	</properties>
 	<groupId>com.xzy</groupId>
 	<artifactId>springbootapi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 	<modules>
 		<module>springbootapi-parent</module>
 		<module>springbootapi-admin-aggregate</module>
-	</modules>
+        <module>springbootapi-demo</module>
+    </modules>
 
 </project>
