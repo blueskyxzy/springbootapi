@@ -1,0 +1,30 @@
+package com.xzy.springbootapidemo.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ * Created by xzy on 18/10/31  .
+ */
+
+
+@Controller
+@RequestMapping("/p")
+public class DemoController {
+
+    @RequestMapping(value = "/demo3", method = RequestMethod.GET)
+    public String demo3() {
+        return "demo3";
+    }
+
+    // 登录页
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("login");
+        return mv;
+    }
+
+}
