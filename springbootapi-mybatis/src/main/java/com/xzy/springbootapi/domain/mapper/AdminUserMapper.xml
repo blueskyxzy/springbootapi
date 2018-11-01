@@ -24,6 +24,12 @@
     from admin_user
     where id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="selectByMobile" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from admin_user
+    where mobile = #{mobile,jdbcType=VARCHAR}
+  </select>
   <select id="loadAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -41,7 +47,7 @@
     delete from admin_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.xzy.springbootapi.domain.AdminUser" >
+  <insert id="insert" parameterType="com.xzy.springbootapi.domain.AdminUser">
     insert into admin_user (id, name, password, 
       mobile, locked, provider_id, 
       create_user_id, create_time, update_user_id, 
@@ -51,7 +57,7 @@
       #{createUserId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=BIGINT}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{incubatorId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.xzy.springbootapi.domain.AdminUser" >
+  <insert id="insertSelective" parameterType="com.xzy.springbootapi.domain.AdminUser" useGeneratedKeys="true" keyProperty="id">
     insert into admin_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

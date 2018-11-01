@@ -15,11 +15,13 @@ public interface AdminUserMapper {
 
     AdminUser selectByPrimaryKey(Long id);
 
+    AdminUser selectByMobile(@Param("mobile") String mobile);
+
     int updateByPrimaryKeySelective(AdminUser record);
 
     int updateByPrimaryKey(AdminUser record);
 
     List<AdminUser> loadAll();
 
-    List<AdminUser> selectAdminList(@Param("start") Long start,@Param("start") Long limit);
+    List<AdminUser> selectAdminList(@Param("start") Long start,@Param("limit") Long limit);
 }
