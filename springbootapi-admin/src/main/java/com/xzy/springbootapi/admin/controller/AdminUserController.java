@@ -5,6 +5,7 @@ import com.xzy.springbootapi.domain.AdminUser;
 import com.xzy.springbootapi.domain.model.PageResultVo;
 import com.xzy.springbootapi.domain.vo.AdminUserVo;
 import com.xzy.springbootapi.service.AdminUserService;
+import com.xzy.springbootapi.utils.RequestData;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -47,8 +48,21 @@ public class AdminUserController extends BaseRestController{
     }
 
     @PostMapping("/users")
-    public void UserPost(HttpServletResponse response){
-        // TODO
+    public void UserPost(HttpServletResponse response,
+                         @RequestBody RequestData<AdminUser> reqData){
+        // 为省时间,简写
+        AdminUser adminUser = reqData.getData();
+        AdminUser adminUserDemo = adminUserService.selectByMobile(adminUser.getMobile());
+        if (adminUserDemo != null){
+            writeError(response, "手机号已注册");
+            return;
+        }
+        int result = adminUserService.insertAdminUser(adminUser);
+        if (result <= 0){
+            writeError(response, "添加用户失败");
+            return;
+        }
+        writeSuccess(response, "用户添加成功");
     }
 
     @DeleteMapping("/users/{id}")

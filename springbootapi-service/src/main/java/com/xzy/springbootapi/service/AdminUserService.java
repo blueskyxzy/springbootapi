@@ -11,4 +11,7 @@ public interface AdminUserService {
 
     List<AdminUserVo> selectAdminList(Long start, Long limit);
 
+    int insertAdminUser(AdminUser adminUser);
+
+    AdminUser selectByMobile(String mobile);
 }

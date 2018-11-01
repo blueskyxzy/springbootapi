@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,5 +40,17 @@ public class AdminUserServiceImpl implements AdminUserService{
             adminUserVos.add(adminUserVo);
         }
         return adminUserVos;
+    }
+
+    @Override
+    public int insertAdminUser(AdminUser adminUser) {
+        adminUser.setCreateTime(new Date());
+        int insert = adminUserMapper.insertSelective(adminUser);
+        return insert;
+    }
+
+    @Override
+    public AdminUser selectByMobile(String mobile) {
+        return adminUserMapper.selectByMobile(mobile);
     }
 }
