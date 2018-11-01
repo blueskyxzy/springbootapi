@@ -24,32 +24,6 @@ public class UserController extends BaseRestController{
     @Resource
     AdminUserService adminUserService;
 
-    @GetMapping("/users/{id}")
-    public void UserGet(HttpServletResponse response,
-                        @PathVariable Long id){
-        // TODO
-    }
-
-    @GetMapping("/users")
-    public void UserList(HttpServletResponse response,
-                         @ApiParam(value = "起始数") Long start,
-                         @ApiParam(value = "结束时") @RequestParam(value = "limit", required = false) Long limit){
-        if (start == null && limit == null){
-            List<AdminUser> adminUsers = adminUserService.loadAll();
-            writeSuccess(response, adminUsers);
-        } else {
-            List<AdminUserVo> adminList = adminUserService.selectAdminList(start, limit);
-            PageResultVo<AdminUserVo> pageResultVo = new PageResultVo<>();
-            pageResultVo.setReturnList(adminList);
-            pageResultVo.setStart(start);
-            pageResultVo.setLimit(limit);
-            pageResultVo.setReturnCount((long)adminList.size());
-            pageResultVo.setTotalCount((long)adminUserService.selectAdminList(null, null).size());
-            writeSuccess(response, pageResultVo);
-        }
-
-    }
-
     @PostMapping("/users")
     public void UserPost(HttpServletResponse response,
                          @RequestBody RequestData<AdminUser> reqData){
@@ -68,15 +42,4 @@ public class UserController extends BaseRestController{
         writeSuccess(response, "用户添加成功");
     }
 
-    @DeleteMapping("/users/{id}")
-    public void UserDelete(HttpServletResponse response,
-                           @PathVariable Long id){
-        // TODO
-    }
-
-    @PatchMapping("/users/{id}")
-    public void UserPatch(HttpServletResponse response,
-                           @PathVariable Long id){
-        // TODO
-    }
 }
