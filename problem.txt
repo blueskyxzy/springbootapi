@@ -47,6 +47,7 @@
 
 5.报错Class path contains multiple SLF4J bindings.
 ch.qos.logback和org.apache.log4j的2个日志包冲突删除其中一个
+但是这种方法只是临时的，项目中还是会下载并使用的logback的包，修改pom依赖才解决
 
 然后报错Unable to create file /usr/local/logs/springbootapi/admin/ibatis.log java.io.IOException: No such file or directory
 说明权限不够
