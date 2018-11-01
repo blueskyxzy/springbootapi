@@ -1,4 +1,4 @@
-package com.xzy.springbootapi.utils;
+package com.xzy.springbootapi.admin.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
 /**
- * Created by xzy on 18/6/6  .
+ * utility class for REST
  */
-
 public class HttpRestUtils {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpRestUtils.class);
 
     public static final String APPLICATION_JSON_CHARSET_UTF_8 = "application/json;charset=UTF-8";
@@ -21,7 +21,7 @@ public class HttpRestUtils {
      * Send the string message back
      *
      * @param response http response
-     * @param content string
+     * @param content  string
      */
     public static void writeString(HttpServletResponse response, String content) {
         responseDisableCache(response);
@@ -45,7 +45,7 @@ public class HttpRestUtils {
      * NOTE: The content-type of the response will be set to "application/json".
      *
      * @param response http response
-     * @param rawJson raw json string
+     * @param rawJson  raw json string
      */
     public static void writeRawJson(HttpServletResponse response, String rawJson) {
         response.setContentType(APPLICATION_JSON_CHARSET_UTF_8);
@@ -63,7 +63,8 @@ public class HttpRestUtils {
             return;
 
         try {
-            JSON.writeJSONStringTo(jsonObj, writer, SerializerFeature.DisableCircularReferenceDetect);
+            JSON.writeJSONStringTo(jsonObj, writer, SerializerFeature.DisableCircularReferenceDetect, SerializerFeature.WriteNonStringKeyAsString);
+            //JSON.writeJSONStringTo(jsonObj, writer, SerializerFeature.DisableCircularReferenceDetect);
         } finally {
             writer.close();
         }
