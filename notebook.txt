@@ -3,10 +3,12 @@
     2) 如果需要返回到指定页面，则需要用 @Controller配合视图解析器InternalResourceViewResolver才行。
     如果需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解
 
-2.访问页面
+2.访问页面和接口
 http://localhost:8091/demo2.html
 http://localhost:8091/views/demo1.html
 http://localhost:8091/p/demo3
+
+http://localhost:8091/users
 
 3.springboot多环境部署
 mvn clean package -P ${profile} 指定使用哪个profile配置
@@ -17,4 +19,5 @@ mvn clean package -P ${profile} 指定使用哪个profile配置
 
 4.log4j配置
 
-5.
+5.swagger2文档配置
+
