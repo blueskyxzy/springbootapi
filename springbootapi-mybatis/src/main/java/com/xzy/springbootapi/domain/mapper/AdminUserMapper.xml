@@ -29,6 +29,14 @@
     <include refid="Base_Column_List" />
     from admin_user
   </select>
+  <select id="selectAdminList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from admin_user
+    <if test="start !=null and limit != null">
+      limit #{start,jdbcType=BIGINT},#{limit,jdbcType=BIGINT}
+    </if>
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from admin_user
     where id = #{id,jdbcType=BIGINT}

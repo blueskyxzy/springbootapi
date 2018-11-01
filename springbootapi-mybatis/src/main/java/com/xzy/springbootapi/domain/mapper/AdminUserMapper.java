@@ -1,6 +1,8 @@
 package com.xzy.springbootapi.domain.mapper;
 
 import com.xzy.springbootapi.domain.AdminUser;
+import com.xzy.springbootapi.domain.vo.AdminUserVo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,4 +21,5 @@ public interface AdminUserMapper {
 
     List<AdminUser> loadAll();
 
+    List<AdminUser> selectAdminList(@Param("start") Long start,@Param("start") Long limit);
 }
