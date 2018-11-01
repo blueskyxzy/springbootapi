@@ -10,4 +10,7 @@ http://localhost:8091/p/demo3
 
 3.springboot多环境部署
 mvn clean package -P ${profile} 指定使用哪个profile配置
+如：mvn clean package -P prod -Dmaven.test.skip=true
+再执行  java -jar 项目名.jar 这个就可以了
 
+或者java -jar 项目名.jar --spring.profiles.active=${profile} 指定配置
