@@ -20,4 +20,8 @@ mvn clean package -P ${profile} 指定使用哪个profile配置
 4.log4j配置
 
 5.swagger2文档配置
-
+地址：http://localhost:8091/swagger-ui.html
+@Api
+@ApiParam
+@ApiModel
+@ApiModelProperty

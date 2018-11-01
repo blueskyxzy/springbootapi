@@ -6,6 +6,8 @@ import com.xzy.springbootapi.domain.AdminUser;
 import com.xzy.springbootapi.domain.model.PageResultVo;
 import com.xzy.springbootapi.domain.vo.AdminUserVo;
 import com.xzy.springbootapi.service.AdminUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,6 +19,7 @@ import java.util.List;
  */
 
 @RestController
+@Api(value = "客户端人员", description = "客户端人员")
 public class AdminUserController extends BaseRestController{
     @Resource
     AdminUserService adminUserService;
@@ -29,8 +32,8 @@ public class AdminUserController extends BaseRestController{
 
     @GetMapping("/users")
     public void UserList(HttpServletResponse response,
-                         @RequestParam(value = "start", required = false) Long start,
-                         @RequestParam(value = "limit", required = false) Long limit){
+                         @ApiParam(value = "起始数") Long start,
+                         @ApiParam(value = "结束时") @RequestParam(value = "limit", required = false) Long limit){
         if (start == null && limit == null){
             List<AdminUser> adminUsers = adminUserService.loadAll();
             writeSuccess(response, adminUsers);
