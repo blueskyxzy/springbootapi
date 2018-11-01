@@ -31,11 +31,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>com.changru</groupId>-->
-        <!--<artifactId>wxpay-scanpay-java-sdk</artifactId>-->
-        <!--<version>1.0</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>

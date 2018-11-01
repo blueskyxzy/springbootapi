@@ -43,3 +43,12 @@
       <version>1.2</version>
     </dependency>
     不行还是报同样的错
+    后发现是多个包冲突操作的
+
+5.报错Class path contains multiple SLF4J bindings.
+ch.qos.logback和org.apache.log4j的2个日志包冲突删除其中一个
+
+然后报错Unable to create file /usr/local/logs/springbootapi/admin/ibatis.log java.io.IOException: No such file or directory
+说明权限不够
+sudo chmod 777 /usr/local/logs
+

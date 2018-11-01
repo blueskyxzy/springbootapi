@@ -14,3 +14,7 @@ mvn clean package -P ${profile} 指定使用哪个profile配置
 再执行  java -jar 项目名.jar 这个就可以了
 
 或者java -jar 项目名.jar --spring.profiles.active=${profile} 指定配置
+
+4.log4j配置
+
+5.

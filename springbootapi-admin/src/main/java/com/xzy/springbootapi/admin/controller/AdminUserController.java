@@ -1,11 +1,11 @@
 package com.xzy.springbootapi.admin.controller;
 
 
+import com.xzy.springbootapi.admin.utils.RequestData;
 import com.xzy.springbootapi.domain.AdminUser;
 import com.xzy.springbootapi.domain.model.PageResultVo;
 import com.xzy.springbootapi.domain.vo.AdminUserVo;
 import com.xzy.springbootapi.service.AdminUserService;
-import com.xzy.springbootapi.utils.RequestData;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

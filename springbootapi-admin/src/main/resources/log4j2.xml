@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="trace" monitorInterval="30">
+    <properties>
+        <property name="LOG_DIR">/usr/local/logs/springbootapi</property>
+        <property name="LOG_APP">admin</property>
+        <property name="MSG_PATTERN">%d{yy.MM.dd HH:mm:ss.SSS z} %X{loginUserId} %X{req.id} %-5level %class{36} %L %M - %msg%xEx%n</property>
+    </properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${MSG_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="rootAppender" fileName="${LOG_DIR}/${LOG_APP}/root.log" filePattern="${LOG_DIR}/${LOG_APP}/archive/$${date:yyyy-MM}/root-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>${MSG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+        <RollingFile name="ibatisAppender" fileName="${LOG_DIR}/${LOG_APP}/ibatis.log" filePattern="${LOG_DIR}/${LOG_APP}/archive/$${date:yyyy-MM}/ibatis-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>${MSG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+        <RollingFile name="cacheAppender" fileName="${LOG_DIR}/${LOG_APP}/cache.log" filePattern="${LOG_DIR}/${LOG_APP}/archive/$${date:yyyy-MM}/cache-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>${MSG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+        <RollingFile name="quartzAppender" fileName="${LOG_DIR}/${LOG_APP}/quartz.log" filePattern="${LOG_DIR}/${LOG_APP}/archive/$${date:yyyy-MM}/quartz-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>${MSG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <logger name="DefaultLogger" level="info" additivity="false">
+            <AppenderRef ref="rootAppender"/>
+        </logger>
+        <!-- for jdbc log -->
+        <logger name="com.xzy.springbootapi.domain" level="debug" additivity="false">
+            <AppenderRef ref="ibatisAppender"/>
+        </logger>
+        <logger name="org.springframework.jdbc" level="info" additivity="false">
+            <AppenderRef ref="ibatisAppender"/>
+        </logger>
+        <logger name="org.apache.ibatis" level="info" additivity="false">
+            <AppenderRef ref="ibatisAppender"/>
+        </logger>
+        <logger name="org.mybatis.spring" level="info" additivity="false">
+            <AppenderRef ref="ibatisAppender"/>
+        </logger>
+        <!-- for cache log -->
+        <logger name="net.sf.ehcache.statistics" level="info" additivity="false">
+            <AppenderRef ref="cacheAppender"/>
+        </logger>
+        <logger name="net.sf.ehcache" level="info" additivity="false">
+            <AppenderRef ref="cacheAppender"/>
+        </logger>
+        <logger name="org.quartz" level="debug" additivity="false">
+            <AppenderRef ref="quartzAppender"/>
+        </logger>
+        <Root level="debug">
+            <AppenderRef ref="rootAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
