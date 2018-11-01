@@ -8,3 +8,6 @@ http://localhost:8091/demo2.html
 http://localhost:8091/views/demo1.html
 http://localhost:8091/p/demo3
 
+3.springboot多环境部署
+mvn clean package -P ${profile} 指定使用哪个profile配置
+
