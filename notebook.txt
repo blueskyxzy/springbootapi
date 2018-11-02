@@ -26,4 +26,13 @@ mvn clean package -P ${profile} 指定使用哪个profile配置
 @ApiModel
 @ApiModelProperty
 
-6.
+6.MQ
+rabbitmq和activemq
+
+7.schedule定时任务
+
+8.redis配置
+
+9.Actuator监控应用
+
+10.Docker部署
