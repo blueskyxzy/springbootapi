@@ -45,7 +45,7 @@
     不行还是报同样的错
     后发现是多个包冲突操作的
 
-5.报错Class path contains multiple SLF4J bindings.
+5.配置log报错Class path contains multiple SLF4J bindings.
 ch.qos.logback和org.apache.log4j的2个日志包冲突删除其中一个
 但是这种方法只是临时的，项目中还是会下载并使用的logback的包，修改pom依赖才解决
 
@@ -53,3 +53,5 @@ ch.qos.logback和org.apache.log4j的2个日志包冲突删除其中一个
 说明权限不够
 sudo chmod 777 /usr/local/logs
 
+6.配置quartz报错Spring Quartz *.QRTZ_LOCKS' doesn't exist
+通过修改配置让quartz不读取数据库或者在连接的数据库手动新建表

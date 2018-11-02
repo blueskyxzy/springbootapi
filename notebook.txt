@@ -27,7 +27,7 @@ mvn clean package -P ${profile} 指定使用哪个profile配置
 @ApiModelProperty
 
 6.MQ
-rabbitmq和activemq
+activemq和阿里云的MQ
 
 7.schedule定时任务
 
