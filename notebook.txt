@@ -32,6 +32,11 @@ activemq和阿里云的MQ
 7.schedule定时任务
 
 8.redis配置
+redisTemplate.opsForValue();//操作字符串
+redisTemplate.opsForHash();//操作hash
+redisTemplate.opsForList();//操作list
+redisTemplate.opsForSet();//操作set
+redisTemplate.opsForZSet();//操作有序set
 
 9.Actuator监控应用
 
