@@ -6,6 +6,8 @@ import com.xzy.springbootapi.domain.AdminUser;
 import com.xzy.springbootapi.domain.model.PageResultVo;
 import com.xzy.springbootapi.domain.vo.AdminUserVo;
 import com.xzy.springbootapi.service.AdminUserService;
+import com.xzy.springbootapi.service.utils.RedisKeyUtil;
+import com.xzy.springbootapi.service.utils.RedisService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,9 @@ import java.util.List;
 public class AdminUserController extends BaseRestController{
     @Resource
     AdminUserService adminUserService;
+
+    @Resource
+    RedisService redisService;
 
     @GetMapping("/users/{id}")
     public void UserGet(HttpServletResponse response,
@@ -78,5 +83,13 @@ public class AdminUserController extends BaseRestController{
     public void UserPatch(HttpServletResponse response,
                            @PathVariable Long id){
         // TODO
+    }
+
+    @PostMapping("/users/setRedis")
+    public void UserRedisPost(HttpServletResponse response,
+                         @RequestBody RequestData<AdminUser> reqData){
+        // 为省时间,简写
+        AdminUser adminUser = reqData.getData();
+        redisService.setOpsForValue(RedisKeyUtil.getKey());
     }
 }
