@@ -27,7 +27,11 @@ mvn clean package -P ${profile} 指定使用哪个profile配置
 @ApiModelProperty
 
 6.MQ
-activemq和阿里云的MQ
+阿里云的MQ:
+tag: ib_create
+body:"id"  或者json数据
+
+activeMQ:
 
 7.schedule定时任务
 
