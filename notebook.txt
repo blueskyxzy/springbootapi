@@ -42,6 +42,9 @@ redisTemplate.opsForList();//操作list
 redisTemplate.opsForSet();//操作set
 redisTemplate.opsForZSet();//操作有序set
 
+mysql.server start
+redis-server
+
 9.Actuator监控应用
 
 10.Docker部署
