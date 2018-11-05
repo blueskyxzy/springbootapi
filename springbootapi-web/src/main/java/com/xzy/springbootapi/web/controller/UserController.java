@@ -29,11 +29,6 @@ public class UserController extends BaseRestController{
                          @RequestBody RequestData<AdminUser> reqData){
         // 为省时间,简写
         AdminUser adminUser = reqData.getData();
-        AdminUser adminUserDemo = adminUserService.selectByMobile(adminUser.getMobile());
-        if (adminUserDemo != null){
-            writeError(response, "手机号已注册");
-            return;
-        }
         int result = adminUserService.insertAdminUser(adminUser);
         if (result <= 0){
             writeError(response, "添加用户失败");

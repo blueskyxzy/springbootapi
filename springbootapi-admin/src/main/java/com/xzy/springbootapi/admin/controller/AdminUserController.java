@@ -90,6 +90,8 @@ public class AdminUserController extends BaseRestController{
                          @RequestBody RequestData<AdminUser> reqData){
         // 为省时间,简写
         AdminUser adminUser = reqData.getData();
-        redisService.setOpsForValue(RedisKeyUtil.getKey());
+        redisService.setOpsForValue("adminUser", String.valueOf(adminUser.getName()));
+        String adminUserName = redisService.getOpsForValue("adminUser");
+        writeSuccess(response, adminUserName);
     }
 }

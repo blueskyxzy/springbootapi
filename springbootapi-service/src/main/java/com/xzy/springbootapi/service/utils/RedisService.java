@@ -130,8 +130,12 @@ public class RedisService {
         redisTemplate.opsForValue().set(key, value);
     }
 
-    public void getOpsForValue(String key) {
-        redisTemplate.opsForValue().get(key);
+    public void setOpsForValue(String key, String value, Long time, TimeUnit timeUnit) {
+        redisTemplate.opsForValue().set(key, value, time, timeUnit);
+    }
+
+    public String getOpsForValue(String key) {
+        return redisTemplate.opsForValue().get(key);
     }
 
 }
