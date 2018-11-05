@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="msgListener" class="com.xzy.springbootapi.admin.mq.MyConsumerListener"/>
+
+    <bean id="consumer" class="com.aliyun.openservices.ons.api.bean.ConsumerBean" init-method="start"
+          destroy-method="shutdown">
+        <property name="properties">
+            <props>
+                <prop key="ONSAddr">${springbootapi.mq.onsaddr}</prop>
+                <prop key="ConsumerId">${springbootapi.mq.cid}</prop>
+                <prop key="AccessKey">${accesskey}</prop>
+                <prop key="SecretKey">${secretkey}</prop>
+                <prop key="ConsumeThreadNums">50</prop>
+            </props>
+        </property>
+        <property name="subscriptionTable">
+            <map>
+                <entry value-ref="msgListener">
+                    <key>
+                        <bean class="com.aliyun.openservices.ons.api.bean.Subscription">
+                            <property name="topic" value="${springbootapi.mq.topic}"/>
+                            <property name="expression" value="${springbootapi.mq.tag}"/>
+                            <!--expression即Tag，可以设置成具体的Tag，如 taga||tagb||tagc，也可设置成*。 *仅代表订阅所有Tag，不支持通配-->
+                        </bean>
+                    </key>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+</beans>

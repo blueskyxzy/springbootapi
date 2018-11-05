@@ -9,7 +9,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan({"com.xzy.springbootapi.admin.controller",
-        "com.xzy.springbootapi.service"})
+        "com.xzy.springbootapi.service",
+        "com.xzy.springbootapi.admin.mq"})
 public class ServiceConfig {
 
 }

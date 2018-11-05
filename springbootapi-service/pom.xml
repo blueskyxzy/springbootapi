@@ -35,6 +35,12 @@
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>
         </dependency>
+        <!--阿里云mq消息-->
+        <dependency>
+            <groupId>com.aliyun.openservices</groupId>
+            <artifactId>ons-client</artifactId>
+            <version>1.7.1.Final</version>
+        </dependency>
     </dependencies>
 
 </project>

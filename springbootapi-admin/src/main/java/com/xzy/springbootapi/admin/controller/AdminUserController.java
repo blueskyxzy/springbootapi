@@ -6,7 +6,9 @@ import com.xzy.springbootapi.domain.AdminUser;
 import com.xzy.springbootapi.domain.model.PageResultVo;
 import com.xzy.springbootapi.domain.vo.AdminUserVo;
 import com.xzy.springbootapi.service.AdminUserService;
+import com.xzy.springbootapi.service.ProducerService;
 import com.xzy.springbootapi.service.RedisService;
+import com.xzy.springbootapi.service.consts.ServiceConsts;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +29,9 @@ public class AdminUserController extends BaseRestController{
 
     @Resource
     RedisService redisService;
+
+    @Resource
+    ProducerService producerService;
 
     @GetMapping("/users/{id}")
     public void UserGet(HttpServletResponse response,
@@ -87,10 +92,24 @@ public class AdminUserController extends BaseRestController{
     @PostMapping("/users/setRedis")
     public void UserRedisPost(HttpServletResponse response,
                          @RequestBody RequestData<AdminUser> reqData){
-        // 为省时间,简写
+        // 测试redis
         AdminUser adminUser = reqData.getData();
         redisService.setOpsForValue("adminUser", String.valueOf(adminUser.getName()));
         String adminUserName = redisService.getOpsForValue("adminUser");
         writeSuccess(response, adminUserName);
+    }
+
+    @GetMapping("/testMQ")
+    public void TestMQ(HttpServletResponse response){
+        // 测试阿里MQ
+        producerService.sendMessage(ServiceConsts.AliMQMessage.testTAG);
+        writeSuccess(response, "发送消息成功");
+    }
+
+    @GetMapping("/logMQ")
+    public void LogMQ(HttpServletResponse response){
+        // 测试阿里MQ
+        producerService.sendMessage(ServiceConsts.AliMQMessage.logTAG);
+        writeSuccess(response, "发送消息成功");
     }
 }
