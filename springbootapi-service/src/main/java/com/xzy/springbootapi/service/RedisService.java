@@ -1,7 +1,9 @@
-package com.xzy.springbootapi.service.utils;
+package com.xzy.springbootapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.Date;
@@ -14,6 +16,8 @@ import java.util.stream.Stream;
  * Created by xzy on 18/11/2  .
  */
 
+@Service
+@Transactional
 public class RedisService {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
