@@ -99,17 +99,17 @@ public class AdminUserController extends BaseRestController{
         writeSuccess(response, adminUserName);
     }
 
-    @GetMapping("/testMQ")
-    public void TestMQ(HttpServletResponse response){
-        // 测试阿里MQ
-        producerService.sendMessage(ServiceConsts.AliMQMessage.testTAG);
-        writeSuccess(response, "发送消息成功");
-    }
-
-    @GetMapping("/logMQ")
-    public void LogMQ(HttpServletResponse response){
-        // 测试阿里MQ
-        producerService.sendMessage(ServiceConsts.AliMQMessage.logTAG);
-        writeSuccess(response, "发送消息成功");
-    }
+//    @GetMapping("/testMQ")
+//    public void TestMQ(HttpServletResponse response){
+//        // 测试阿里MQ
+//        producerService.sendMessage(ServiceConsts.AliMQMessage.testTAG);
+//        writeSuccess(response, "发送消息成功");
+//    }
+//
+//    @GetMapping("/logMQ")
+//    public void LogMQ(HttpServletResponse response){
+//        // 测试阿里MQ
+//        producerService.sendMessage(ServiceConsts.AliMQMessage.logTAG);
+//        writeSuccess(response, "发送消息成功");
+//    }
 }
