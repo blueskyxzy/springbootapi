@@ -9,5 +9,5 @@ import org.springframework.context.annotation.ImportResource;
 //
 //@Configuration
 //@ImportResource(locations = {"classpath:consumer.xml", "classpath:producer.xml"})
-public class AliwareMQConfig {
+public class RocketMQConfig {
 }
