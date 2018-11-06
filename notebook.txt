@@ -43,8 +43,10 @@ redisTemplate.opsForList();//操作list
 redisTemplate.opsForSet();//操作set
 redisTemplate.opsForZSet();//操作有序set
 
+启动时，mac需开启的服务
 mysql.server start
 redis-server
+activemq start
 
 9.Actuator监控应用
 
