@@ -33,7 +33,6 @@ mvn clean package -P ${profile} 指定使用哪个profile配置
 
 activeMQ:
 
-
 7.schedule定时任务
 
 8.redis配置
@@ -49,5 +48,11 @@ redis-server
 activemq start
 
 9.Actuator监控应用
+http://localhost:8091/beans        查看bean及其关系列表
+http://localhost:8091/health       查看应用健康指标
+http://localhost:8091/info         查看应用信息
 
 10.Docker部署
+轻量级虚拟化  容器引擎
+镜像和容器
+镜像是呈载容器的实体，所有容器都是运行在镜像之上
