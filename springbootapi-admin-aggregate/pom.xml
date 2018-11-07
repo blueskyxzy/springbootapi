@@ -14,8 +14,8 @@
 
     <modules>
         <module>../springbootapi-mybatis</module>
+        <module>../springbootapi-utils</module>
         <module>../springbootapi-service</module>
         <module>../springbootapi-admin</module>
-        <module>../springbootapi-utils</module>
     </modules>
 </project>
