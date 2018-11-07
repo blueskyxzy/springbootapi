@@ -55,3 +55,11 @@ sudo chmod 777 /usr/local/logs
 
 6.配置quartz报错Spring Quartz *.QRTZ_LOCKS' doesn't exist
 通过修改配置让quartz不读取数据库或者在连接的数据库手动新建表
+
+7.多模块项目pom依赖
+被引入模块pom.xml文件中不应该有spring-boot-maven-plugin插件
+原因：被引入模块的这个插件的 repackage 目标会处理该模块的 jar 包，导致依赖它的模块无法使用它
+
+service和admin模块install报错 Could not find artifact
+多模块项目构建时，先将parent项目要先install一回，之后子项目才可以运行mvn compile命令,否则就会报如上异常
+mybatis模块compile后，其他依赖模块就不会报错了，能打成jar包并部署了
